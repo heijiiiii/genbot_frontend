@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: genbot-frontend
+    env: node
+    plan: free
+    buildCommand: npm install --force && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NEXTAUTH_URL
+        value: https://genbot-frontend.onrender.com
+      # - NEXTAUTH_SECRET: [Render 대시보드에서 설정]
+      - key: BACKEND_URL
+        value: https://genesisbot.onrender.com
+      # 아래 환경변수들은 Render 대시보드에서 직접 설정해주세요
+      # - SUPABASE_URL: [Supabase 프로젝트 URL]
+      # - SUPABASE_SERVICE_ROLE_KEY: [Supabase Service Role Key]
+      # - OPENAI_API_KEY: [OpenAI API Key]
+      # - COHERE_API_KEY: [Cohere API Key] 
