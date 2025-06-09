@@ -28,14 +28,12 @@ const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-inter',
-  preload: true,
 });
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-jetbrains-mono',
-  preload: true,
 });
 
 const notoSansKR = Noto_Sans_KR({
@@ -43,7 +41,6 @@ const notoSansKR = Noto_Sans_KR({
   weight: ['300', '400', '500', '700'],
   display: 'swap',
   variable: '--font-noto-sans-kr',
-  preload: true,
 });
 
 const montserrat = Montserrat({
@@ -51,7 +48,6 @@ const montserrat = Montserrat({
   weight: ['300', '400', '500', '600', '700'],
   display: 'swap',
   variable: '--font-montserrat',
-  preload: true,
 });
 
 const paperlogy = localFont({
@@ -84,7 +80,6 @@ const paperlogy = localFont({
   ],
   variable: '--font-paperlogy',
   display: 'swap',
-  preload: true,
 });
 
 const LIGHT_THEME_COLOR = '#1A237E'; // 갤럭시 테마 색상으로 변경
@@ -129,44 +124,8 @@ export default async function RootLayout({
           }}
         />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-        {/* 폰트 프리로딩 설정 */}
-        <link
-          rel="preload"
-          href="/fonts/Paperlogy-3Light.ttf"
-          as="font"
-          type="font/ttf"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/fonts/Paperlogy-4Regular.ttf"
-          as="font"
-          type="font/ttf"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/fonts/Paperlogy-5Medium.ttf"
-          as="font"
-          type="font/ttf"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/fonts/Paperlogy-6SemiBold.ttf"
-          as="font"
-          type="font/ttf"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/fonts/Paperlogy-7Bold.ttf"
-          as="font"
-          type="font/ttf"
-          crossOrigin="anonymous"
-        />
       </head>
-      <body className="antialiased font-inter">
+      <body className="antialiased" style={{ fontFamily: 'var(--font-paperlogy), var(--font-noto-sans-kr), sans-serif' }}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

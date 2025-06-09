@@ -6,8 +6,6 @@ import { Chat } from '@/components/chat';
 import { DEFAULT_CHAT_MODEL } from '@/lib/ai/models';
 import { generateUUID } from '@/lib/utils';
 import { DataStreamHandler } from '@/components/data-stream-handler';
-import { auth } from '../(auth)/auth';
-import { redirect } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import PageContent from './page-content';
 
@@ -17,10 +15,6 @@ export const dynamic = 'force-dynamic';
 // 서버 컴포넌트
 export default async function Page() {
   try {
-    // 세션 확인 (로그인 여부 확인)
-    const session = await auth();
-    const isLoggedIn = !!session?.user;
-
     const id = generateUUID();
 
     const cookieStore = await cookies();
@@ -30,8 +24,6 @@ export default async function Page() {
     return <PageContent 
       id={id} 
       selectedChatModel={selectedChatModel} 
-      isLoggedIn={isLoggedIn} 
-      session={session} 
     />;
   } catch (error) {
     console.error('[CHAT] 오류 발생:', error);
